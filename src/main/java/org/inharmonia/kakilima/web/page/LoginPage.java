@@ -45,7 +45,7 @@ public class LoginPage extends BasePage {
         loginForm.add(new TextField<String>("email").setRequired(true));
         loginForm.add(new PasswordTextField("password").setRequired(true));
         loginForm.add(new CheckBox("rememberMe"));
-        loginForm.add(new Button("loginButton", new Model("Login")));
+        loginForm.add(new Button("loginButton", new Model<String>("Login")));
         loginForm.add(new Label("registerText", "Don't have an account yet? Register"));
         loginForm.add(new Link("registerLink"){
             @Override
