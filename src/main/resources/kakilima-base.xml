@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:application.properties" />
+    </bean>
+
+    <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="url" value="${db.url}" />
+        <property name="driverClassName" value="${db.driver}" />
+        <property name="username" value="${db.username}" />
+        <property name="password" value="${db.password}" />
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+        <property name="packagesToScan" value="org.inharmonia.kakilima.base.domain"/>
+        <property name="schemaUpdate" value="true"/>
+        <property name="hibernateProperties">
+			<props>
+  				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+  				<prop key="hibernate.show_sql">false</prop>
+  				<!--
+				<prop key="use_outer_join">${hibernate.use_outer_join}</prop>
+                <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+                <prop key="hibernate.cache.use_query_cache">${hibernate.cache.use_query_cache}</prop>
+                <prop key="hibernate.cache.provider_class">${hibernate.cache.provider}</prop>
+                <prop key="hibernate.connection.pool_size">10</prop>
+                <prop key="hibernate.jdbc.batch_size">1000</prop>
+                <prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+                -->
+  			</props>
+  		</property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+    <tx:annotation-driven />
+    <context:component-scan base-package="org.inharmonia.kakilima.base"/>
+
+    <bean id="kakilimaApplication" class="org.inharmonia.kakilima.KakilimaApplication">
+        
+    </bean>
+
+</beans>

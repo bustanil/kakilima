@@ -1,0 +1,37 @@
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+    <title wicket:id="pageTitle">Wicket Quickstart Archetype Homepage</title>
+    <link rel="stylesheet" href="css/blueprint/screen.css"/>
+    <link rel="stylesheet" href="css/blueprint/print.css"/>
+    <!--[if IE]>
+    <link rel="stylesheet" href="css/blueprint/ie.css"/><![endif]-->
+    <link rel="stylesheet" href="css/main.css"/>
+    <link type="text/css" href="css/blueprint/ui.all.css" rel="Stylesheet"/>
+</head>
+<body>
+<div id="main_container" class="container">
+    <div wicket:id="welcomeMessagePanel" class="span-16" style="padding: 3 0 3 0px;">
+        [gets replaced]
+    </div>
+    <div wicket:id="menubarPanel" class="span-8 last" align="right" style="padding: 3 0 3 0px;"></div>
+    <hr/>
+    <div id="header" class="span-15">
+        <!-- TODO temporary link -->
+        <a href="/"><img src="images/logo.jpg" alt="header image" height="50px;"/></a>
+    </div>
+    <div wicket:id="searchItemPanel" class="span-8 last right">
+        [gets replaced]
+    </div>
+    <hr/>
+    <div class="container">
+        <div wicket:id="categoryPanel" class="span-4 colborder" style="padding: 5 5 5 5px;">
+            [gets replaced]
+        </div>
+        <div class="span-19 last">
+            <div wicket:id="feedbackPanel"></div>
+            <wicket:child/>
+        </div>
+    </div>
+</div>
+</body>
+</html>

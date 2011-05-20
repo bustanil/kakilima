@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<head>
+    <title></title>
+</head>
+<body>
+<wicket:extend>
+    <h3><span wicket:id="myStoresLabel">My Stores</span></h3>
+
+    <div wicket:id="emptyStoreContainer">
+        <span wicket:id="emptyStore1">You haven't got any store yet.</span>
+        <span wicket:id="emptyStore2">Add one </span>
+        <a wicket:id="addStoreLink" href="#"><span wicket:id="addStoreLinkLabel">here</span></a>.
+    </div>
+    <div wicket:id="myStoreContainer">
+        <table style="border:1px solid #efefef; padding:5 5 5 5px;">
+            <tr>
+                <th><span wicket:id="nameTableHeader">Name</span></th>
+                <th><span wicket:id="descriptionTableHeader">Description</span></th>
+            </tr>
+            <tr wicket:id="storeItem">
+                <td><a wicket:id="editStoreLink"><span wicket:id="name">Electronic store</span></a></td>
+                <td><span wicket:id="description">We sell electronics with reasonable prices</span></td>
+            </tr>
+        </table>
+    </div>
+</wicket:extend>
+</body>
+</html>

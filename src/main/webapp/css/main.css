@@ -1,0 +1,9 @@
+.table_header {
+    padding: 5px 2px 2px 2px;
+    background: #ffd6f6;
+}
+
+.feedbackPanelERROR {
+    color: red;
+    font-weight:bold;
+}
